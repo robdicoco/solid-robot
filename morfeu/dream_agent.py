@@ -94,13 +94,16 @@ def agent_dream_interpreter(dream_text, symbols_analysis):
             4. Maintain a poetic and mystical tone throughout
             5. Be encouraging and positive in overall outlook
             
-            Format your response as a JSON object with these fields:
+            YOU MUST RETURN ONLY A VALID JSON object with these fields (and NO additional text or markdown):
             {
               "interpretation": "main poetic interpretation of the dream",
               "psychological_insight": "overall psychological perspective",
               "life_application": "how this might relate to the dreamer's life",
               "guidance": "gentle advice or wisdom based on the dream"
             }
+            
+            DO NOT wrap your response in ```json or any other markdown code blocks. 
+            Return ONLY the JSON object.
         """,
         description="Agent that creates final poetic dream interpretation"
     )
@@ -110,7 +113,53 @@ def agent_dream_interpreter(dream_text, symbols_analysis):
     interpretation = call_agent(dream_interpreter, input_message)
     return interpretation
 
-# Main DreamInterpreter class that orchestrates the three agents
+# Agent 4: Quality & Language Verifier - Checks quality and language match
+def agent_quality_language_verifier(dream_text, interpretation_json):
+    quality_verifier = Agent(
+        name="agent_quality_verifier",
+        model="gemini-2.0-flash",
+        instruction="""
+            You are a quality assurance expert and language specialist for dream interpretations.
+            Your task is to:
+            
+            1. Verify the quality of the dream interpretation:
+               - Ensure it is poetic and insightful
+               - Check that it addresses the key elements in the dream
+               - Verify it's encouraging and positive in tone
+            
+            2. Identify the language of the user's dream text
+            
+            3. Check if the interpretation is in the same language as the user's dream text
+            
+            4. If the language doesn't match, translate the interpretation to the user's language
+               
+            YOU MUST RETURN ONLY A VALID JSON object with these fields (and NO additional text or markdown):
+            {
+              "quality_assessment": "Your assessment of the interpretation quality", 
+              "source_language": "language of the original dream text",
+              "interpretation_language": "language of the interpretation",
+              "language_match": true/false,
+              "refined_interpretation": {
+                "interpretation": "translated/refined interpretation if needed, otherwise keep original",
+                "psychological_insight": "translated/refined insight if needed, otherwise keep original",
+                "life_application": "translated/refined application if needed, otherwise keep original",
+                "guidance": "translated/refined guidance if needed, otherwise keep original"
+              }
+            }
+            
+            DO NOT wrap your response in ```json or any other markdown code blocks.
+            Return ONLY the JSON object.
+        """,
+        description="Agent that verifies quality and language match",
+        tools=[google_search]
+    )
+
+    input_message = f"Dream Text: {dream_text}\nInterpretation: {interpretation_json}"
+    # Execute the agent
+    verification = call_agent(quality_verifier, input_message)
+    return verification
+
+# Main DreamInterpreter class that orchestrates the four agents
 class DreamInterpreter:
     def __init__(self):
         # Load dream symbols database
@@ -119,7 +168,7 @@ class DreamInterpreter:
             self.symbols_database = json.load(f)["symbols"]
 
     def interpret_dream(self, dream: str) -> Dict:
-        """Interpret a dream using the three-agent system."""
+        """Interpret a dream using the four-agent system."""
         print("🔍 Searching for symbols in the dream...")
         symbols_found_text = agent_symbol_search(dream)
         
@@ -164,21 +213,97 @@ class DreamInterpreter:
         
         # Try to parse the final interpretation as JSON
         try:
-            result = json.loads(final_interpretation_text)
+            # First attempt direct parsing
+            interpretation_result = json.loads(final_interpretation_text)
         except json.JSONDecodeError:
-            # If not valid JSON, create a structured response
-            result = {
-                "interpretation": final_interpretation_text,
-                "psychological_insight": "See interpretation above",
-                "life_application": "See interpretation above",
-                "guidance": "See interpretation above"
-            }
+            # Check if the response might contain a JSON string (common with LLM responses)
+            try:
+                # Look for JSON-like content in the text
+                if "```json" in final_interpretation_text:
+                    # Extract JSON from code blocks
+                    json_content = final_interpretation_text.split("```json")[1].split("```")[0].strip()
+                    interpretation_result = json.loads(json_content)
+                else:
+                    # Try to find JSON formatted content within the text
+                    import re
+                    json_matches = re.findall(r'(\{.*\})', final_interpretation_text, re.DOTALL)
+                    if json_matches:
+                        interpretation_result = json.loads(json_matches[0])
+                    else:
+                        raise ValueError("No JSON content found")
+            except (json.JSONDecodeError, ValueError, IndexError):
+                # If all parsing attempts fail, create a structured response
+                interpretation_result = {
+                    "interpretation": final_interpretation_text,
+                    "psychological_insight": "Unable to extract structured content",
+                    "life_application": "Unable to extract structured content",
+                    "guidance": "Unable to extract structured content"
+                }
+        
+        # Ensure the result is properly structured
+        for key in ["interpretation", "psychological_insight", "life_application", "guidance"]:
+            if key in interpretation_result:
+                # Clean up the value by removing any JSON or code formatting artifacts
+                if isinstance(interpretation_result[key], str):
+                    interpretation_result[key] = interpretation_result[key].replace("```json", "").replace("```", "").strip()
+                    # Remove any escaped newlines or quotes
+                    interpretation_result[key] = interpretation_result[key].replace("\\n", "\n").replace('\\"', '"')
+        
+        print("🔍 Verifying quality and language match...")
+        verification_text = agent_quality_language_verifier(dream, json.dumps(interpretation_result))
+        
+        # Try to parse the verification as JSON
+        try:
+            verification_result = json.loads(verification_text)
+        except json.JSONDecodeError:
+            try:
+                # Handle possible code blocks or embedded JSON
+                if "```json" in verification_text:
+                    json_content = verification_text.split("```json")[1].split("```")[0].strip()
+                    verification_result = json.loads(json_content)
+                else:
+                    import re
+                    json_matches = re.findall(r'(\{.*\})', verification_text, re.DOTALL)
+                    if json_matches:
+                        verification_result = json.loads(json_matches[0])
+                    else:
+                        raise ValueError("No JSON content found")
+            except (json.JSONDecodeError, ValueError, IndexError):
+                # If parsing fails, use original interpretation
+                verification_result = {
+                    "quality_assessment": "Could not verify quality",
+                    "source_language": "unknown",
+                    "interpretation_language": "unknown",
+                    "language_match": True,
+                    "refined_interpretation": interpretation_result
+                }
+        
+        # Build the final result
+        result = {}
+        
+        # Use the refined interpretation if available, otherwise use the original
+        if "refined_interpretation" in verification_result and verification_result["refined_interpretation"]:
+            for key in ["interpretation", "psychological_insight", "life_application", "guidance"]:
+                if key in verification_result["refined_interpretation"]:
+                    result[key] = verification_result["refined_interpretation"][key]
+                elif key in interpretation_result:
+                    result[key] = interpretation_result[key]
+        else:
+            # Use original interpretation
+            for key in ["interpretation", "psychological_insight", "life_application", "guidance"]:
+                if key in interpretation_result:
+                    result[key] = interpretation_result[key]
         
         # Add original dream text
         result["dream"] = dream
         
-        # Add symbols analysis if not present
-        if "symbols_analysis" not in result:
-            result["symbols_analysis"] = symbols_analysis.get("symbols_analysis", [])
+        # Add symbols analysis
+        result["symbols_analysis"] = symbols_analysis.get("symbols_analysis", [])
+        
+        # Add language information
+        result["source_language"] = verification_result.get("source_language", "unknown")
+        result["interpretation_language"] = verification_result.get("interpretation_language", "unknown")
+        result["language_match"] = verification_result.get("language_match", True)
+        result["quality_assessment"] = verification_result.get("quality_assessment", "No quality assessment available")
         
         return result 

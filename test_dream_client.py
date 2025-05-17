@@ -2,8 +2,24 @@
 import os
 import json
 import argparse
+import re
 from dotenv import load_dotenv
 from morfeu.dream_agent import DreamInterpreter
+
+def clean_text(text):
+    """Clean up text from JSON artifacts and code blocks."""
+    if text is None:
+        return "No content available"
+    
+    # Remove JSON code blocks
+    text = text.replace("```json", "").replace("```", "").strip()
+    # Remove escaped characters
+    text = text.replace("\\n", "\n").replace('\\"', '"')
+    # Handle the case where "See interpretation above" is present
+    if text in ["See interpretation above", "Unable to extract structured content"]:
+        return "No specific content extracted. Please see the main interpretation."
+    
+    return text
 
 def main():
     # Load environment variables
@@ -64,18 +80,32 @@ def main():
     print(f"💭 Your Dream: {dream_text[:100]}..." if len(dream_text) > 100 else f"💭 Your Dream: {dream_text}")
     print("=" * 60)
     
+    # Display language information
+    source_lang = result.get("source_language", "unknown")
+    interp_lang = result.get("interpretation_language", "unknown")
+    lang_match = result.get("language_match", True)
+    
+    print(f"\n🌐 Language: {source_lang.capitalize()} (Dream) → {interp_lang.capitalize()} (Interpretation)")
+    
+    if not lang_match:
+        print("⚠️  Note: The interpretation has been translated to match your dream's language.")
+    
+    # Display quality assessment
+    quality = result.get("quality_assessment", "No quality assessment available")
+    print(f"\n💯 Quality Assessment: {quality}")
+    
     print("\n📜 Interpretation:")
-    print(result["interpretation"])
+    print(clean_text(result.get("interpretation", "")))
     
     print("\n🧠 Psychological Insight:")
-    print(result["psychological_insight"])
+    print(clean_text(result.get("psychological_insight", "")))
     
     print("\n🌱 Life Application:")
-    print(result["life_application"])
+    print(clean_text(result.get("life_application", "")))
     
     if "guidance" in result and result["guidance"]:
         print("\n🔆 Guidance:")
-        print(result["guidance"])
+        print(clean_text(result.get("guidance", "")))
     
     # Write the full result to a file
     with open("dream_interpretation.json", "w") as f:

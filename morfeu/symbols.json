@@ -2,38 +2,738 @@
     "symbols": {
         "water": {
             "meaning": "Emotions, subconscious, purification",
-            "positive": ["flowing water", "clear water", "swimming"],
-            "negative": ["dirty water", "drowning", "flooding"]
+            "positive": ["flowing water", "clear water", "swimming", "peaceful lake", "gentle rain"],
+            "negative": ["dirty water", "drowning", "flooding", "turbulent sea", "stagnant water"]
         },
         "flying": {
             "meaning": "Freedom, transcendence, ambition",
-            "positive": ["soaring", "gliding", "controlled flight"],
-            "negative": ["falling", "struggling to fly", "crashing"]
+            "positive": ["soaring effortlessly", "gliding smoothly", "controlled flight", "flying with loved ones", "seeing a vast landscape"],
+            "negative": ["struggling to fly", "falling mid-flight", "crashing", "being chased while flying", "heavy wings"]
         },
         "falling": {
             "meaning": "Loss of control, anxiety, transition",
-            "positive": ["soft landing", "flying after falling"],
-            "negative": ["endless falling", "crashing", "fear"]
+            "positive": ["soft landing", "floating down gently", "flying after falling", "realizing it's a dream"],
+            "negative": ["endless falling", "crashing violently", "fear of impact", "falling into darkness", "losing footing"]
         },
         "teeth": {
             "meaning": "Power, confidence, communication",
-            "positive": ["strong teeth", "white teeth"],
-            "negative": ["losing teeth", "broken teeth", "decay"]
+            "positive": ["strong, healthy teeth", "white, shining teeth", "getting new teeth", "speaking clearly"],
+            "negative": ["losing teeth", "broken teeth", "decaying teeth", "teeth crumbling", "inability to speak"]
         },
         "death": {
             "meaning": "Transformation, change, endings",
-            "positive": ["peaceful death", "rebirth"],
-            "negative": ["violent death", "fear of death"]
+            "positive": ["peaceful passing of an old figure", "rebirth symbolism", "letting go of the past", "witnessing a transformation"],
+            "negative": ["violent death of oneself or loved ones", "fear of dying", "being chased by death", "attending one's own funeral with dread"]
         },
         "house": {
             "meaning": "Self, psyche, security",
-            "positive": ["beautiful house", "renovating", "exploring"],
-            "negative": ["destroyed house", "lost house", "haunted"]
+            "positive": ["beautiful, well-maintained house", "renovating and improving", "exploring new rooms", "feeling safe and secure"],
+            "negative": ["destroyed or dilapidated house", "getting lost in one's own house", "haunted house", "feeling trapped inside", "foundation crumbling"]
         },
         "snake": {
             "meaning": "Transformation, wisdom, danger",
-            "positive": ["tamed snake", "helpful snake"],
-            "negative": ["attacking snake", "poisonous snake"]
+            "positive": ["shedding skin", "wise, calm snake", "snake as a guide", "finding a shed snakeskin"],
+            "negative": ["attacking, venomous snake", "being bitten by a snake", "fear of snakes", "multiple snakes surrounding you"]
+        },
+        "car": {
+            "meaning": "Direction in life, control, journey",
+            "positive": ["driving smoothly", "reaching destination easily", "new, reliable car", "scenic drive"],
+            "negative": ["losing control of the car", "car crash", "getting lost while driving", "car breaking down", "driving in circles"]
+        },
+        "animals (general)": {
+            "meaning": "Instincts, specific qualities associated with the animal",
+            "positive": ["nurturing animal", "playful animal", "animal as a protector"],
+            "negative": ["aggressive animal", "being hunted by an animal", "sick or dying animal"]
+        },
+        "fire": {
+            "meaning": "Passion, destruction, purification",
+            "positive": ["warm, controlled fire", "bonfire with friends", "fire providing light"],
+            "negative": ["uncontrolled wildfire", "being burned by fire", "house on fire", "feeling overwhelmed by heat"]
+        },
+        "money": {
+            "meaning": "Value, self-worth, resources",
+            "positive": ["finding money", "receiving a large sum", "feeling financially secure"],
+            "negative": ["losing money", "being robbed", "feeling poor or lacking resources"]
+        },
+        "food": {
+            "meaning": "Nourishment, desires, sustenance",
+            "positive": ["delicious, plentiful food", "sharing a meal with loved ones", "feeling satisfied after eating"],
+            "negative": ["rotten food", "being hungry and unable to eat", "overeating and feeling sick"]
+        },
+        "clothing": {
+            "meaning": "Identity, social presentation, protection",
+            "positive": ["wearing beautiful, comfortable clothes", "getting new clothes", "feeling well-dressed"],
+            "negative": ["being naked or exposed", "wearing dirty or torn clothes", "feeling self-conscious about clothing"]
+        },
+        "school/work": {
+            "meaning": "Learning, challenges, responsibilities",
+            "positive": ["succeeding in a test/project", "getting a promotion", "enjoying learning/work"],
+            "negative": ["failing an exam", "being late for school/work", "feeling overwhelmed by responsibilities"]
+        },
+        "children": {
+            "meaning": "Innocence, new beginnings, vulnerability",
+            "positive": ["happy, playing children", "nurturing a child", "feeling joyful around children"],
+            "negative": ["lost or crying children", "feeling responsible for neglected children", "child in danger"]
+        },
+        "parents": {
+            "meaning": "Authority, guidance, nurturing",
+            "positive": ["receiving support from parents", "peaceful interaction with parents", "feeling loved and guided"],
+            "negative": ["arguing with parents", "feeling abandoned by parents", "parents being sick or in danger"]
+        },
+        "forest": {
+            "meaning": "Subconscious, mystery, the unknown",
+            "positive": ["exploring a beautiful forest", "finding a clear path", "feeling connected to nature"],
+            "negative": ["getting lost in a dark forest", "feeling threatened by unseen things", "dense, impenetrable foliage"]
+        },
+        "ocean": {
+            "meaning": "Vast emotions, the unconscious, mystery",
+            "positive": ["calm, clear ocean", "swimming peacefully", "feeling the vastness and wonder"],
+            "negative": ["stormy, turbulent ocean", "being lost at sea", "fear of the deep"]
+        },
+        "mountains": {
+            "meaning": "Challenges, achievements, obstacles",
+            "positive": ["reaching the summit", "admiring the view from the top", "feeling strong and capable"],
+            "negative": ["struggling to climb", "falling down the mountain", "feeling overwhelmed by the height"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "keys": {
+            "meaning": "Opportunities, solutions, secrets",
+            "positive": ["finding a key that opens a door", "receiving a set of keys", "unlocking a mystery"],
+            "negative": ["losing keys", "being unable to find the right key", "keys breaking"]
+        },
+        "doors": {
+            "meaning": "Opportunities, choices, new beginnings",
+            "positive": ["opening a door to a bright space", "choosing the right door", "stepping into a new phase"],
+            "negative": ["being locked out", "opening a door to darkness or danger", "feeling hesitant to open a door"]
+        },
+        "mirrors": {
+            "meaning": "Self-reflection, truth, appearance",
+            "positive": ["seeing a clear, positive reflection", "recognizing oneself", "gaining self-awareness"],
+            "negative": ["seeing a distorted or frightening reflection", "not recognizing oneself", "broken mirror"]
+        },
+        "books": {
+            "meaning": "Knowledge, learning, self-discovery",
+            "positive": ["reading an interesting book", "finding a book with answers", "learning new things"],
+            "negative": ["being unable to read the words", "losing a significant book", "books turning to dust"]
+        },
+        "music": {
+            "meaning": "Emotions, harmony, expression",
+            "positive": ["listening to beautiful, uplifting music", "playing music skillfully", "feeling moved by music"],
+            "negative": ["discordant or frightening music", "being unable to hear the music", "broken instruments"]
+        },
+        "colors (specific)": {
+            "meaning": "Varying meanings depending on the color (e.g., red for passion/anger, blue for peace/sadness)",
+            "positive": ["vibrant, pleasing colors", "surrounded by harmonious colors"],
+            "negative": ["dull, oppressive colors", "overwhelming or clashing colors"]
+        },
+        "numbers (specific)": {
+            "meaning": "Varying symbolic meanings depending on the number",
+            "positive": ["seeing auspicious numbers", "numbers appearing in a meaningful sequence"],
+            "negative": ["seeing ominous numbers", "feeling overwhelmed by numbers"]
+        },
+        "letters/writing": {
+            "meaning": "Communication, messages, self-expression",
+            "positive": ["receiving a positive letter", "writing clearly and effectively", "finding important information written down"],
+            "negative": ["receiving bad news in a letter", "being unable to read the writing", "letters disappearing"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "clocks/time": {
+            "meaning": "Urgency, deadlines, the passage of life",
+            "positive": ["having enough time", "clocks moving smoothly", "feeling in sync with time"],
+            "negative": ["running out of time", "clocks moving too fast or too slow", "feeling trapped by time"]
+        },
+        "babies": {
+            "meaning": "New beginnings, potential, innocence",
+            "positive": ["holding a happy baby", "witnessing a birth", "feeling hopeful about the future"],
+            "negative": ["crying or sick baby", "feeling unable to care for a baby", "loss of a baby"]
+        },
+        "jewelry": {
+            "meaning": "Self-worth, adornment, status",
+            "positive": ["finding beautiful jewelry", "receiving a precious gift", "feeling valued"],
+            "negative": ["losing jewelry", "jewelry breaking", "feeling inadequate"]
+        },
+        "gardens": {
+            "meaning": "Growth, potential, inner peace",
+            "positive": ["walking through a beautiful, blooming garden", "planting seeds", "feeling serene"],
+            "negative": ["overgrown, neglected garden", "weeds taking over", "feeling stifled"]
+        },
+        "stars/sky": {
+            "meaning": "Hope, guidance, the vastness of the universe",
+            "positive": ["bright, clear stars", "looking up at a beautiful sky", "feeling inspired"],
+            "negative": ["dark, starless sky", "stormy clouds", "feeling lost and insignificant"]
+        },
+        "shadows": {
+            "meaning": "Unconscious aspects of the self, hidden fears",
+            "positive": ["integrating one's shadow", "understanding hidden aspects"],
+            "negative": ["being chased by a dark shadow", "feeling threatened by unseen forces", "shadows growing larger"]
+        },
+        "masks": {
+            "meaning": "Concealment, roles, hidden identity",
+            "positive": ["choosing a mask to express a different side", "understanding social roles"],
+            "negative": ["feeling forced to wear a mask", "not knowing one's true identity", "masks being suffocating"]
+        },
+        "dancing": {
+            "meaning": "Joy, freedom of expression, harmony",
+            "positive": ["dancing freely and joyfully", "dancing in unison with others", "feeling connected through movement"],
+            "negative": ["feeling clumsy or unable to dance", "being forced to dance against one's will", "discordant or chaotic dancing"]
+        },
+        "singing": {
+            "meaning": "Self-expression, emotions, communication",
+            "positive": ["singing beautifully and confidently", "harmonious singing with others", "feeling joy through song"],
+            "negative": ["being unable to sing or speak", "discordant or unpleasant singing", "feeling silenced"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "ladders": {
+            "meaning": "Progress, ambition, reaching new heights",
+            "positive": ["climbing a ladder successfully", "reaching a higher level", "feeling a sense of achievement"],
+            "negative": ["falling off a ladder", "being unable to climb", "ladder breaking"]
+        },
+        "caves": {
+            "meaning": "The unconscious, introspection, hidden depths",
+            "positive": ["exploring a fascinating cave", "finding hidden treasures", "feeling a sense of inner peace"],
+            "negative": ["getting lost in a dark cave", "feeling trapped or claustrophobic", "encountering danger within a cave"]
+        },
+        "jewelry": {
+            "meaning": "Self-worth, adornment, status",
+            "positive": ["finding beautiful jewelry", "receiving a precious gift", "feeling valued"],
+            "negative": ["losing jewelry", "jewelry breaking", "feeling inadequate"]
+        },
+        "mirrors": {
+            "meaning": "Self-reflection, truth, appearance",
+            "positive": ["seeing a clear, positive reflection", "recognizing oneself", "gaining self-awareness"],
+            "negative": ["seeing a distorted or frightening reflection", "not recognizing oneself", "broken mirror"]
+        },
+        "keys": {
+            "meaning": "Opportunities, solutions, secrets",
+            "positive": ["finding a key that opens a door", "receiving a set of keys", "unlocking a mystery"],
+            "negative": ["losing keys", "being unable to find the right key", "keys breaking"]
+        },
+        "doors": {
+            "meaning": "Opportunities, choices, new beginnings",
+            "positive": ["opening a door to a bright space", "choosing the right door", "stepping into a new phase"],
+            "negative": ["being locked out", "opening a door to darkness or danger", "feeling hesitant to open a door"]
+        },
+        "windows": {
+            "meaning": "Perspective, outlook, opportunity",
+            "positive": ["looking out at a beautiful view", "opening a window to fresh air", "seeing new possibilities"],
+            "negative": ["looking out at a bleak or frightening scene", "being trapped behind a window", "broken window"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "roads/paths": {
+            "meaning": "Life's journey, direction, choices",
+            "positive": ["following a clear and pleasant path", "reaching a desired destination", "discovering new paths"],
+            "negative": ["getting lost on a confusing road", "encountering obstacles on the path", "dead ends"]
+        },
+        "trains": {
+            "meaning": "Progress, journey, being on track",
+            "positive": ["arriving at the right station", "enjoying a smooth train ride", "feeling like you're moving forward"],
+            "negative": ["missing the train", "train derailing", "feeling stuck on a train going nowhere"]
+        },
+        "ships/boats": {
+            "meaning": "Emotional journey, the self navigating emotions",
+            "positive": ["sailing smoothly on calm waters", "reaching a safe harbor", "exploring new horizons"],
+            "negative": ["shipwrecked", "lost at sea", "stormy waters threatening to capsize the boat"]
+        },
+        "airplanes": {
+            "meaning": "Ambition, long-term goals, perspective",
+            "positive": ["successful flight and landing", "seeing the world from above", "feeling like you're achieving your goals"],
+            "negative": ["airplane crash", "fear of flying", "feeling out of control in the air"]
+        },
+        "elevators": {
+            "meaning": "Changes in status, upward or downward mobility",
+            "positive": ["smoothly ascending to a higher floor", "reaching your desired level", "feeling progress"],
+            "negative": ["elevator getting stuck", "falling rapidly", "feeling trapped or out of control"]
+        },
+        "stairs": {
+            "meaning": "Progress, effort, levels of consciousness",
+            "positive": ["climbing stairs steadily", "reaching the top", "feeling like you're advancing"],
+            "negative": ["tripping or falling down stairs", "endless staircase", "feeling stuck between levels"]
+        },
+        "maps": {
+            "meaning": "Guidance, direction, understanding your path",
+            "positive": ["finding your way with a map", "understanding your current situation", "planning your future"],
+            "negative": ["getting lost despite having a map", "maps being unclear or unhelpful", "feeling lost even with a map"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "tunnels": {
+            "meaning": "Transition, the unknown, inner journey",
+            "positive": ["emerging from a tunnel into light", "navigating a tunnel safely", "discovering something new within"],
+            "negative": ["getting lost in a dark tunnel", "feeling claustrophobic", "encountering danger in a tunnel"]
+        },
+        "gardens": {
+            "meaning": "Growth, potential, inner peace",
+            "positive": ["walking through a beautiful, blooming garden", "planting seeds", "feeling serene"],
+            "negative": ["overgrown, neglected garden", "weeds taking over", "feeling stifled"]
+        },
+        "flowers (specific)": {
+            "meaning": "Varying meanings depending on the flower (e.g., rose for love, lily for purity)",
+            "positive": ["receiving a beautiful bouquet", "seeing vibrant, healthy flowers"],
+            "negative": ["wilted or dying flowers", "being pricked by thorns", "feeling allergic"]
+        },
+        "trees (specific)": {
+            "meaning": "Varying meanings depending on the tree (e.g., oak for strength, willow for grief)",
+            "positive": ["resting under a strong, healthy tree", "climbing a tree with ease", "feeling grounded"],
+            "negative": ["falling from a tree", "seeing a dead or decaying tree", "getting lost in a dense forest"]
+        },
+        "fruit": {
+            "meaning": "Nourishment, reward, fertility",
+            "positive": ["eating delicious, ripe fruit", "harvesting a bountiful crop", "feeling satisfied"],
+            "negative": ["rotten or spoiled fruit", "being unable to reach the fruit", "feeling hungry despite seeing fruit"]
+        },
+        "sun": {
+            "meaning": "Energy, vitality, clarity",
+            "positive": ["feeling the warmth of the sun", "seeing a bright, clear sun", "feeling energized and optimistic"],
+            "negative": ["being burned by the sun", "overcast or hidden sun", "feeling drained and gloomy"]
+        },
+        "moon": {
+            "meaning": "Intuition, emotions, the subconscious",
+            "positive": ["gazing at a beautiful full moon", "feeling a sense of peace and tranquility under the moonlight"],
+            "negative": ["dark or hidden moon", "feeling lost or uncertain in the darkness", "eerie moonlight"]
+        },
+        "stars": {
+            "meaning": "Hope, guidance, the vastness of the universe",
+            "positive": ["bright, clear stars", "looking up at a beautiful sky", "feeling inspired"],
+            "negative": ["dark, starless sky", "stormy clouds obscuring the stars", "feeling lost and insignificant"]
+        },
+        "clouds": {
+            "meaning": "Emotions, thoughts, obstacles",
+            "positive": ["fluffy white clouds", "clouds passing gently", "feeling light and carefree"],
+            "negative": ["dark, stormy clouds", "feeling overshadowed or threatened", "clouds obscuring the view"]
+        },
+        "rain": {
+            "meaning": "Cleansing, renewal, sadness",
+            "positive": ["gentle rain refreshing the earth", "feeling cleansed and renewed", "peaceful sound of rain"],
+            "negative": ["heavy, relentless rain", "feeling overwhelmed by sadness", "being caught in a storm"]
+        },
+        "snow": {
+            "meaning": "Purity, stillness, coldness",
+            "positive": ["beautiful, fresh snowfall", "feeling peaceful and quiet", "enjoying winter activities"],
+            "negative": ["being trapped in a blizzard", "feeling isolated and cold", "slipping on ice"]
+        },
+        "wind": {
+            "meaning": "Change, movement, communication",
+            "positive": ["gentle breeze", "feeling refreshed by the wind", "messages carried by the wind"],
+            "negative": ["strong, destructive wind", "feeling unstable or uprooted", "inability to hear over the wind"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "clocks/time": {
+            "meaning": "Urgency, deadlines, the passage of life",
+            "positive": ["having enough time", "clocks moving smoothly", "feeling in sync with time"],
+            "negative": ["running out of time", "clocks moving too fast or too slow", "feeling trapped by time"]
+        },
+        "calendars": {
+            "meaning": "Planning, awareness of time, important dates",
+            "positive": ["marking important events", "feeling organized and prepared", "looking forward to the future"],
+            "negative": ["missing deadlines", "feeling overwhelmed by commitments", "seeing ominous dates approaching"]
+        },
+        "maps": {
+            "meaning": "Guidance, direction, understanding your path",
+            "positive": ["finding your way with a map", "understanding your current situation", "planning your future"],
+            "negative": ["maps being unclear or unhelpful", "feeling lost even with a map"]
+        },
+        "keys": {
+            "meaning": "Opportunities, solutions, secrets",
+            "positive": ["finding a key that opens a door", "receiving a set of keys", "unlocking a mystery"],
+            "negative": ["losing keys", "being unable to find the right key", "keys breaking"]
+        },
+        "locks": {
+            "meaning": "Obstacles, secrets, feeling trapped",
+            "positive": ["finding the right key to open a lock", "overcoming an obstacle", "uncovering a secret"],
+            "negative": ["being unable to open a lock", "feeling restricted or trapped", "secrets being kept from you"]
+        },
+        "doors": {
+            "meaning": "Opportunities, choices, new beginnings",
+            "positive": ["opening a door to a bright space", "choosing the right door", "stepping into a new phase"],
+            "negative": ["being locked out", "opening a door to darkness or danger", "feeling hesitant to open a door"]
+        },
+        "windows": {
+            "meaning": "Perspective, outlook, opportunity",
+            "positive": ["looking out at a beautiful view", "opening a window to fresh air", "seeing new possibilities"],
+            "negative": ["looking out at a bleak or frightening scene", "being trapped behind a window", "broken window"]
+        },
+        "walls": {
+            "meaning": "Boundaries, obstacles, protection",
+            "positive": ["strong walls providing security", "building walls for protection", "feeling safe within boundaries"],
+            "negative": ["feeling trapped by walls", "unable to break down walls", "walls crumbling or collapsing"]
+        },
+        "roofs": {
+            "meaning": "Protection, security, higher consciousness",
+            "positive": ["strong, intact roof", "feeling safe and sheltered", "gazing at the sky from a rooftop"],
+            "negative": ["leaky or damaged roof", "feeling exposed or vulnerable", "roof collapsing"]
+        },
+        "basements": {
+            "meaning": "The subconscious, hidden aspects, the past",
+            "positive": ["discovering hidden treasures in a basement", "exploring one's inner self", "clearing out old things"],
+            "negative": ["dark, scary basement", "feeling trapped or haunted by the past", "unearthing unpleasant secrets"]
+        },
+        "attics": {
+            "meaning": "Memories, forgotten aspects, higher perspective",
+            "positive": ["rediscovering cherished memories", "gaining a new perspective", "finding forgotten wisdom"],
+            "negative": ["dusty, cluttered attic", "feeling overwhelmed by the past", "finding disturbing remnants"]
+        },
+        "furniture (specific)": {
+            "meaning": "Varying meanings depending on the furniture (e.g., bed for rest, table for gathering)",
+            "positive": ["comfortable and functional furniture", "gathering with loved ones around a table", "resting peacefully in bed"],
+            "negative": ["broken or uncomfortable furniture", "feeling isolated at an empty table", "restless or disturbed sleep"]
+        },
+        "appliances (specific)": {
+            "meaning": "Tools, functionality, everyday tasks",
+            "positive": ["appliances working efficiently", "making tasks easier", "feeling capable and in control"],
+            "negative": ["broken or malfunctioning appliances", "feeling frustrated by everyday tasks", "loss of convenience"]
+        },
+        "tools (specific)": {
+            "meaning": "Capability, problem-solving, action",
+            "positive": ["using tools effectively", "fixing something that's broken", "feeling empowered to act"],
+            "negative": ["tools breaking or being ineffective", "feeling helpless or unable to solve problems", "lack of necessary tools"]
+        },
+        "weapons (specific)": {
+            "meaning": "Aggression, defense, power",
+            "positive": ["using weapons to defend oneself or others", "feeling protected and in control"],
+            "negative": ["being attacked with weapons", "feeling threatened or vulnerable", "using weapons aggressively"]
+        },
+        "vehicles (specific - beyond car, plane, boat, train)": {
+            "meaning": "Specific modes of transportation and their connotations (e.g., bicycle for personal effort, motorcycle for freedom)",
+            "positive": ["enjoying the ride", "reaching your destination", "feeling in control"],
+            "negative": ["vehicle breaking down", "losing control", "getting lost"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "money (specific forms - coins, bills, gold)": {
+            "meaning": "Different aspects of value and resources",
+            "positive": ["finding valuable currency", "receiving abundance", "feeling wealthy"],
+            "negative": ["losing significant amounts", "feeling impoverished", "counterfeit money"]
+        },
+        "gifts": {
+            "meaning": "Love, appreciation, receiving",
+            "positive": ["receiving a thoughtful gift", "giving a gift that is well-received", "feeling loved and appreciated"],
+            "negative": ["receiving an unwanted gift", "losing a precious gift", "feeling unappreciated"]
+        },
+        "letters/writing (specific types - email, journal)": {
+            "meaning": "Different modes of communication and self-expression",
+            "positive": ["receiving important information", "expressing oneself clearly", "reflecting on thoughts and feelings"],
+            "negative": ["miscommunication", "feeling unable to express oneself", "losing important records"]
+        },
+        "food (specific types - bread, meat, sweets)": {
+            "meaning": "Different kinds of nourishment and desires",
+            "positive": ["enjoying a satisfying meal", "feeling nourished and content", "indulging in something pleasurable"],
+            "negative": ["feeling hungry or deprived", "eating unhealthy or spoiled food", "overindulgence leading to sickness"]
+        },
+        "drinks (specific types - water, alcohol, coffee)": {
+            "meaning": "Different forms of refreshment and their effects",
+            "positive": ["feeling refreshed and hydrated", "socializing and relaxing", "feeling energized and alert"],
+            "negative": ["feeling dehydrated or unwell", "loss of control or impairment", "feeling jittery or anxious"]
+        },
+        "clothing (specific items - dress, shoes, hat)": {
+            "meaning": "Different aspects of identity and social presentation",
+            "positive": ["wearing something that makes you feel confident", "having appropriate attire for a situation", "expressing your style"],
+            "negative": ["feeling exposed or inappropriately dressed", "shoes that are uncomfortable or broken", "losing an important item of clothing"]
+        },
+        "jewelry (specific items - ring, necklace, earrings)": {
+            "meaning": "Different symbols of commitment, adornment, and self-expression",
+            "positive": ["wearing beautiful and meaningful jewelry", "receiving a cherished piece", "feeling adorned and valued"],
+            "negative": ["losing or breaking important jewelry", "feeling bare or insignificant", "jewelry feeling heavy or restrictive"]
+        },
+        "animals (specific - cat, dog, bird, insect)": {
+            "meaning": "Specific qualities and instincts associated with each animal",
+            "positive": ["friendly and helpful animal", "feeling companionship", "observing the animal's positive traits"],
+            "negative": ["aggressive or threatening animal", "feeling fear or being attacked", "observing the animal in distress"]
+        },
+        "body parts (specific - eyes, hands, feet, heart)": {
+            "meaning": "Different aspects of the self, perception, action, and emotion",
+            "positive": ["clear vision", "capable hands", "steady feet", "feeling love and connection"],
+            "negative": ["blurred vision", "injured hands", "inability to walk", "feeling heartbreak or isolation"]
+        },
+        "buildings (specific - hospital, church, castle)": {
+            "meaning": "Different institutions and their associated feelings and meanings",
+            "positive": ["receiving healing or help", "feeling spiritual connection", "feeling safe and powerful"],
+            "negative": ["feeling sick or confined", "questioning faith or feeling judged", "feeling trapped or under siege"]
+        },
+        "landscapes (specific - desert, beach, mountains)": {
+            "meaning": "Different environments and their associated feelings and challenges",
+            "positive": ["finding solace in nature", "enjoying beauty and tranquility", "feeling a sense of accomplishment"],
+            "negative": ["feeling isolated and barren", "threatened by the elements", "overwhelmed by obstacles"]
+        },
+        "celestial bodies (specific - planets, comets, galaxies)": {
+            "meaning": "Larger cosmic forces, destiny, the unknown",
+            "positive": ["feeling connected to the universe", "witnessing awe-inspiring events", "sense of wonder"],
+            "negative": ["feeling insignificant or overwhelmed by the cosmos", "ominous celestial events", "feeling lost in space"]
+        },
+        "colors (more specific nuances)": {
+            "meaning": "Deeper psychological and cultural associations with each color",
+            "positive": ["feeling the positive associations of the color", "surrounded by harmonious and uplifting hues"],
+            "negative": ["feeling the negative associations of the color", "overwhelmed by jarring or unpleasant shades"]
+        },
+        "numbers (more specific interpretations)": {
+            "meaning": "Deeper symbolic and numerological meanings of each number",
+            "positive": ["experiencing numbers associated with good fortune or balance", "seeing meaningful numerical sequences"],
+            "negative": ["encountering numbers associated with bad luck or imbalance", "feeling overwhelmed by chaotic numbers"]
+        },
+        "letters/writing (specific scripts or languages)": {
+            "meaning": "Associations with different forms of communication and culture",
+            "positive": ["understanding and appreciating different forms of writing", "feeling connected to other cultures through language"],
+            "negative": ["feeling excluded or unable to understand", "seeing writing that is threatening or indecipherable"]
+        },
+        "music (specific genres or instruments)": {
+            "meaning": "Emotional and cultural associations with different types of music",
+            "positive": ["feeling uplifted or moved by the music", "connecting with others through shared musical tastes"],
+            "negative": ["feeling disturbed or agitated by the music", "inability to appreciate or understand the music"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
+        },
+        "technology (specific - phone, computer, internet)": {
+            "meaning": "Communication, information, connection (and disconnection)",
+            "positive": ["connecting with others easily", "accessing valuable information", "feeling efficient and productive"],
+            "negative": ["feeling isolated despite technology", "experiencing technical difficulties", "overwhelmed by information or cyber threats"]
+        },
+        "games/sports": {
+            "meaning": "Competition, skill, play, teamwork",
+            "positive": ["winning a game or competition", "enjoying the act of playing", "feeling camaraderie with teammates"],
+            "negative": ["losing badly", "feeling excluded or unable to participate", "experiencing conflict or cheating"]
+        },
+        "holidays/celebrations": {
+            "meaning": "Joy, tradition, connection, memories",
+            "positive": ["enjoying festive gatherings", "feeling connected to loved ones", "experiencing joy and celebration"],
+            "negative": ["feeling lonely during a holiday", "experiencing conflict or disappointment", "memories of loss or sadness"]
+        },
+        "art/creativity": {
+            "meaning": "Self-expression, beauty, imagination",
+            "positive": ["creating something beautiful or meaningful", "appreciating art", "feeling inspired"],
+            "negative": ["feeling blocked creatively", "criticized for your art", "seeing art that is disturbing"]
+        },
+        "learning/education": {
+            "meaning": "Growth, knowledge, understanding",
+            "positive": ["grasping new concepts easily", "succeeding in studies", "feeling intellectually stimulated"],
+            "negative": ["struggling to learn", "failing exams", "feeling inadequate intellectually"]
+        },
+        "travel/voyages": {
+            "meaning": "Exploration, change of perspective, new experiences",
+            "positive": ["enjoying a journey to a new place", "discovering exciting things", "feeling refreshed and broadened"],
+            "negative": ["getting lost while traveling", "experiencing delays or difficulties", "feeling homesick or out of place"]
+        },
+        "law/justice": {
+            "meaning": "Order, fairness, consequences",
+            "positive": ["seeing justice served", "feeling protected by the law", "resolving conflicts fairly"],
+            "negative": ["being wrongly accused", "witnessing injustice", "fear of legal repercussions"]
+        },
+        "medicine/healing": {
+            "meaning": "Health, recovery, well-being",
+            "positive": ["feeling healthy and strong", "recovering from illness", "receiving helpful medical care"],
+            "negative": ["feeling sick or injured", "fear of illness or death", "inadequate medical care"]
+        },
+        "religion/spirituality": {
+            "meaning": "Faith, meaning, connection to something larger",
+            "positive": ["feeling spiritually connected", "experiencing peace and faith", "finding meaning in life"],
+            "negative": ["questioning faith", "feeling lost or disconnected spiritually", "fear of judgment"]
+        },
+        "death (specific scenarios - funeral, cemetery)": {
+            "meaning": "Mourning, endings, reflection on mortality",
+            "positive": ["peaceful farewell", "honoring the deceased", "coming to terms with loss"],
+            "negative": ["intense grief, fear of death", "unresolved issues with the deceased", "feeling haunted by the past"]
+        },
+        "birth/new beginnings": {
+            "meaning": "Creation, potential, fresh starts",
+            "positive": ["witnessing a birth", "feeling hopeful about the future", "embracing new opportunities"],
+            "negative": ["difficult or traumatic birth", "fear of new responsibilities", "uncertainty about the future"]
+        },
+        "marriage/relationships": {
+            "meaning": "Commitment, connection, partnership",
+            "positive": ["feeling loved and supported", "harmonious relationships", "experiencing deep connection"],
+            "negative": ["conflict and arguments", "feeling lonely or unloved", "betrayal or separation"]
+        },
+        "family (specific members - siblings, grandparents)": {
+            "meaning": "Different aspects of familial bonds and influences",
+            "positive": ["feeling close and supported by family", "sharing happy moments", "receiving guidance and love"],
+            "negative": ["family conflict or estrangement", "feeling burdened by family responsibilities", "worry about family members"]
+        },
+        "friends/community": {
+            "meaning": "Social connection, support, belonging",
+            "positive": ["feeling accepted and supported by friends", "enjoying social gatherings", "sense of community"],
+            "negative": ["feeling isolated or excluded", "betrayal by friends", "conflict within the community"]
+        },
+        "betrayal": {
+            "meaning": "Loss of trust, hurt, broken bonds",
+            "positive": ["overcoming betrayal and moving forward", "learning from the experience", "strengthening inner trust"],
+            "negative": ["feeling deeply hurt and abandoned", "inability to trust again", "obsessive thoughts about the betrayal"]
+        },
+        "secrets": {
+            "meaning": "Hidden information, mystery, things unrevealed",
+            "positive": ["uncovering a positive surprise", "sharing a meaningful secret with trust", "feeling intrigued"],
+            "negative": ["feeling something is being hidden from you", "fear of a secret being revealed", "burden of keeping a secret"]
+        },
+        "lies/deception": {
+            "meaning": "Untruthfulness, manipulation, distrust",
+            "positive": ["uncovering a lie for the better", "protecting someone with a white lie", "learning to discern truth"],
+            "negative": ["being lied to or deceived", "feeling manipulated", "guilt about telling lies"]
+        },
+        "forgiveness": {
+            "meaning": "Letting go of resentment, healing, peace",
+            "positive": ["forgiving someone and finding peace", "being forgiven for a mistake", "healing old wounds"],
+            "negative": ["inability to forgive", "feeling burdened by resentment", "seeking forgiveness but not receiving it"]
+        },
+        "revenge": {
+            "meaning": "Retaliation, anger, seeking retribution",
+            "positive": ["feeling a sense of justice after revenge (can be a warning)", "standing up for oneself"],
+            "negative": ["obsessive thoughts of revenge", "feeling consumed by anger", "negative consequences of seeking revenge"]
+        },
+        "gifts (specific types - money, objects, abstract)": {
+            "meaning": "Different forms of giving and receiving and their associated meanings",
+            "positive": ["receiving something valuable or meaningful", "feeling appreciated", "experiencing generosity"],
+            "negative": ["receiving something unwanted or burdensome", "feeling obligated or indebted", "loss of a cherished gift"]
+        },
+        "promises/agreements": {
+            "meaning": "Commitment, trust, expectations",
+            "positive": ["promises being kept", "feeling reliable and trustworthy", "strong agreements"],
+            "negative": ["broken promises", "feeling betrayed or let down", "unclear or unfair agreements"]
+        },
+        "challenges/obstacles": {
+            "meaning": "Difficulties, tests, opportunities for growth",
+            "positive": ["overcoming challenges and feeling stronger", "learning from difficulties", "growing through adversity"],
+            "negative": ["feeling overwhelmed by obstacles", "unable to overcome challenges", "repeated setbacks"]
+        },
+        "success/achievement": {
+            "meaning": "Accomplishment, recognition, self-esteem",
+            "positive": ["achieving a goal", "receiving praise and recognition", "feeling proud of oneself"],
+            "negative": ["fear of failure after success", "feeling undeserving of success", "loss of achievement"]
+        },
+        "failure/disappointment": {
+            "meaning": "Setbacks, learning experiences, self-doubt",
+            "positive": ["learning from mistakes", "finding strength in vulnerability", "adjusting expectations"],
+            "negative": ["feeling inadequate or worthless", "giving up after failure", "dwelling on disappointment"]
+        },
+        "power/control": {
+            "meaning": "Influence, authority, agency",
+            "positive": ["feeling empowered and in control of one's life", "using power for good", "asserting oneself effectively"],
+            "negative": ["feeling powerless or controlled by others", "abusing power", "struggling for control"]
+        },
+        "vulnerability": {
+            "meaning": "Openness, emotional exposure, authenticity",
+            "positive": ["connecting deeply with others through vulnerability", "healing through emotional openness", "feeling authentic"],
+            "negative": ["feeling exposed or unsafe", "fear of judgment or rejection", "emotional pain from vulnerability"]
+        },
+        "creativity/inspiration": {
+            "meaning": "Imagination, innovation, new ideas",
+            "positive": ["feeling inspired and creative", "expressing oneself through art", "generating new solutions"],
+            "negative": ["feeling creatively blocked", "lack of inspiration", "criticism of one's creative work"]
+        },
+        "communication/expression": {
+            "meaning": "Sharing thoughts and feelings, connection",
+            "positive": ["communicating clearly and effectively", "feeling heard and understood", "expressing oneself authentically"],
+            "negative": ["miscommunication or misunderstandings", "feeling unable to express oneself", "not being heard"]
+        },
+        "fear/anxiety": {
+            "meaning": "Threat, worry, unease",
+            "positive": ["acknowledging and overcoming fears", "using anxiety as a signal for caution"],
+            "negative": ["feeling overwhelmed by fear or anxiety", "panic attacks", "irrational fears"]
+        },
+        "joy/happiness": {
+            "meaning": "Contentment, pleasure, well-being",
+            "positive": ["experiencing pure joy and happiness", "feeling grateful and content", "sharing happy moments"],
+            "negative": ["loss of joy", "feeling empty or numb", "fleeting happiness followed by sadness"]
+        },
+        "sadness/grief": {
+            "meaning": "Loss, sorrow, emotional pain",
+            "positive": ["processing grief in a healthy way", "finding comfort and support", "healing after loss"],
+            "negative": ["feeling overwhelmed by sadness", "prolonged or unresolved grief", "isolation in sadness"]
+        },
+        "anger/frustration": {
+            "meaning": "Resentment, irritation, unmet needs",
+            "positive": ["asserting oneself when angry", "using anger as motivation for change"],
+            "negative": ["uncontrolled anger", "feeling resentful and bitter", "destructive outbursts"]
+        },
+        "surprise/shock": {
+            "meaning": "Unexpected events, sudden realization",
+            "positive": ["pleasant surprises", "sudden insights", "feeling excitement"],
+            "negative": ["shocking or traumatic events", "feeling disoriented", "negative unexpected news"]
+        },
+        "shame/guilt": {
+            "meaning": "Remorse, feeling inadequate, social disapproval",
+            "positive": ["acknowledging mistakes and learning from them", "making amends"],
+            "negative": ["feeling deep shame or guilt", "fear of judgment", "self-punishment"]
+        },
+        "hope/optimism": {
+            "meaning": "Positive expectation, belief in the future",
+            "positive": ["feeling hopeful and optimistic", "believing in positive outcomes", "looking forward to the future"],
+            "negative": ["loss of hope", "feeling pessimistic and defeated", "unrealistic optimism leading to disappointment"]
+        },
+        "desire/lust": {
+            "meaning": "Strong longing, passion, physical attraction",
+            "positive": ["fulfilling healthy desires", "experiencing passion and intimacy", "feeling alive and energized"],
+            "negative": ["uncontrolled desires leading to negative consequences", "obsession or addiction", "unrequited lust"]
+        },
+        "hunger/thirst": {
+            "meaning": "Basic needs, longing, deprivation",
+            "positive": ["satisfying hunger and thirst", "feeling nourished and content"],
+            "negative": ["feeling intense hunger or thirst", "inability to satisfy basic needs", "deprivation"]
+        },
+        "tiredness/exhaustion": {
+            "meaning": "Need for rest, depletion of energy",
+            "positive": ["allowing oneself to rest and recover", "finding peaceful sleep"],
+            "negative": ["feeling constantly exhausted", "inability to rest or sleep", "burnout"]
+        },
+        "sickness/injury": {
+            "meaning": "Vulnerability, imbalance, need for care",
+            "positive": ["recovering from illness or injury", "receiving care and support"],
+            "negative": ["feeling sick or injured", "fear of long-term health issues", "lack of care or support"]
+        },
+        "animals (mythical - dragons, unicorns)": {
+            "meaning": "Archetypal forces, imagination, the extraordinary",
+            "positive": ["encountering benevolent mythical creatures", "feeling wonder and magic", "accessing inner power"],
+            "negative": ["encountering malevolent mythical creatures", "feeling threatened by the unknown", "loss of magic or wonder"]
+        },
+        "places (mythical - enchanted forest, lost city)": {
+            "meaning": "Inner landscapes, the subconscious, forgotten aspects",
+            "positive": ["discovering magical or insightful places", "exploring hidden potential", "connecting with inner wisdom"],
+            "negative": ["getting lost in dangerous or unsettling mythical places", "feeling trapped in the subconscious", "encountering forgotten fears"]
+        },
+        "objects (mythical - magic wand, holy grail)": {
+            "meaning": "Power, potential, the ultimate quest",
+            "positive": ["finding or using powerful magical objects", "feeling empowered to achieve goals", "attaining something sacred"],
+            "negative": ["losing or being unable to use magical objects", "feeling powerless or without resources", "unattainable goals"]
+        },
+        "numbers (mythological/spiritual significance)": {
+            "meaning": "Numbers with specific cultural or spiritual meanings",
+            "positive": ["seeing numbers associated with good fortune or spiritual awakening", "meaningful numerical patterns"],
+            "negative": ["encountering numbers associated with bad omens or imbalance", "feeling overwhelmed by significant numbers"]
+        },
+        "colors (spiritual/symbolic significance)": {
+            "meaning": "Colors with deep spiritual or symbolic associations",
+            "positive": ["being surrounded by colors representing peace, love, or enlightenment", "experiencing the positive energy of specific hues"],
+            "negative": ["being overwhelmed by colors associated with negativity or danger", "feeling drained by disharmonious colors"]
+        },
+        "bridges": {
+            "meaning": "Transitions, connections, decisions",
+            "positive": ["crossing a bridge safely", "building a new bridge", "feeling connected"],
+            "negative": ["bridge collapsing", "fear of crossing", "being stuck on a broken bridge"]
         }
     }
-} 
+}
