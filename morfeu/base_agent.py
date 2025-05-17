@@ -5,7 +5,7 @@ from google.adk.tools import google_search
 from google.genai import types  # To create content (Content and Part)
 
 import textwrap # To better format text output
-from IPython.display import display, Markdown  # To make HTTP requests
+# from IPython.display import display, Markdown  # To make HTTP requests
 import warnings
 
 
