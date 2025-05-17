@@ -1,0 +1,39 @@
+{
+    "symbols": {
+        "water": {
+            "meaning": "Emotions, subconscious, purification",
+            "positive": ["flowing water", "clear water", "swimming"],
+            "negative": ["dirty water", "drowning", "flooding"]
+        },
+        "flying": {
+            "meaning": "Freedom, transcendence, ambition",
+            "positive": ["soaring", "gliding", "controlled flight"],
+            "negative": ["falling", "struggling to fly", "crashing"]
+        },
+        "falling": {
+            "meaning": "Loss of control, anxiety, transition",
+            "positive": ["soft landing", "flying after falling"],
+            "negative": ["endless falling", "crashing", "fear"]
+        },
+        "teeth": {
+            "meaning": "Power, confidence, communication",
+            "positive": ["strong teeth", "white teeth"],
+            "negative": ["losing teeth", "broken teeth", "decay"]
+        },
+        "death": {
+            "meaning": "Transformation, change, endings",
+            "positive": ["peaceful death", "rebirth"],
+            "negative": ["violent death", "fear of death"]
+        },
+        "house": {
+            "meaning": "Self, psyche, security",
+            "positive": ["beautiful house", "renovating", "exploring"],
+            "negative": ["destroyed house", "lost house", "haunted"]
+        },
+        "snake": {
+            "meaning": "Transformation, wisdom, danger",
+            "positive": ["tamed snake", "helpful snake"],
+            "negative": ["attacking snake", "poisonous snake"]
+        }
+    }
+} 
