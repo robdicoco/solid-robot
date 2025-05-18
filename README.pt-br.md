@@ -125,4 +125,4 @@ Para contribuir:
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
+Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo LICENSE para detalhes.
